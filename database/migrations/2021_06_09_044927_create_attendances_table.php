@@ -15,6 +15,19 @@ class CreateAttendancesTable extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
+             $table->unsignedBigInteger('school_id');
+            $table->unsignedBigInteger('stud_id');
+            $table->date('school_date');
+            $table->unsignedBigInteger('attendance_code');
+            $table->string('attendance_reason');
+            $table->unsignedBigInteger('course_period_id');
+            $table->year('school_year');
+            $table->unsignedBigInteger('assign_room');
+            $table->string('comment');
+            $table->foreign('school_id')->references('id')->on('schools');
+            $table->foreign('assign_room')->references('id')->on('assign_room_grades');
+            $table->foreign('stud_id')->references('id')->on('students');
+          
             $table->timestamps();
         });
     }

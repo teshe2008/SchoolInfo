@@ -15,6 +15,20 @@ class CreateStudentsEnrollmentsTable extends Migration
     {
         Schema::create('students_enrollments', function (Blueprint $table) {
             $table->id();
+                 $table->unsignedBigInteger('school_year');
+            $table->unsignedBigInteger('school_id');
+            $table->unsignedBigInteger('student_id');
+            $table->unsignedBigInteger('grade_id');
+            $table->unsignedBigInteger('assign_room_id');
+
+
+
+
+            $table->foreign('school_id')->references('id')->on('schools');
+            $table->foreign('student_id')->references('id')->on('students');
+            $table->foreign('grade_id')->references('id')->on('gradelevels');
+            $table->foreign('assign_room_id')->references('id')->on('assign_room_grades');
+
             $table->timestamps();
         });
     }

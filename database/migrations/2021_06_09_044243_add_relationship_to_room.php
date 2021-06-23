@@ -15,6 +15,8 @@ class AddRelationshipToRoom extends Migration
     {
         Schema::table('room', function (Blueprint $table) {
             //
+               $table->foreign('school_id', 'school_fk_3230867')->references('id')->on('schools');
+      
         });
     }
 

@@ -15,6 +15,12 @@ class CreateGradeLevelsTable extends Migration
     {
         Schema::create('grade_levels', function (Blueprint $table) {
             $table->id();
+              $table->string('title');
+            $table->string('short_name')->nullable();
+            $table->integer('next_grade');
+            $table->unsignedBigInteger('school_id')->nullable();
+            $table->foreign('school_id', 'school_fk_3230822')->references('id')->on('schools');
+           
             $table->timestamps();
         });
     }

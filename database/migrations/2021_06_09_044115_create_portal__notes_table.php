@@ -15,6 +15,9 @@ class CreatePortalNotesTable extends Migration
     {
         Schema::create('portal__notes', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('content');
+            $table->string('publishing_option')->nullable();
             $table->timestamps();
         });
     }
