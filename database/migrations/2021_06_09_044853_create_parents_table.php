@@ -15,7 +15,7 @@ class CreateParentsTable extends Migration
     {
         Schema::create('parents', function (Blueprint $table) {
             $table->id();
-             $table->bigInteger('student_id')->unsigned();
+            $table->bigInteger('student_id')->unsigned();
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -26,7 +26,7 @@ class CreateParentsTable extends Migration
             $table->integer('cell_phone');
             $table->integer('work_phone');
             $table->string('image_name');
-         
+
             $table->timestamps();
         });
     }

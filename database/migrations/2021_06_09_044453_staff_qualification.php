@@ -16,7 +16,7 @@ class StaffQualification extends Migration
         Schema::create('staff__qualifications', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('staff_id');
-            $table->foreign('staff_id')->references('staff_id')->on('staff')->onDelete('cascade');
+            $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade');
             $table->string('name');
             $table->string('type');
             $table->date('start_date');

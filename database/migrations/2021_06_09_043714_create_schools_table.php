@@ -16,17 +16,17 @@ class CreateSchoolsTable extends Migration
         Schema::create('schools', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-                $table->longText('description')->nullable();
-                $table->string('location')->nullable();
-                $table->string('principal')->nullable();
-                $table->string('tagline')->nullable();
-                $table->string('telephone');
-                $table->string('address')->nullable();
-                $table->string('state')->nullable();
-                $table->string('website');
-                $table->string('email')->nullable();
-                $table->date('start_date');
-                $table->date('end_date');
+            $table->longText('description')->nullable();
+            $table->string('location')->nullable();
+            $table->string('principal')->nullable();
+            $table->string('tagline')->nullable();
+            $table->string('telephone');
+            $table->string('address')->nullable();
+            $table->string('state')->nullable();
+            $table->string('website');
+            $table->string('email')->nullable();
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
         });
     }

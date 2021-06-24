@@ -15,12 +15,11 @@ class CreateQuartersTable extends Migration
     {
         Schema::create('quarters', function (Blueprint $table) {
             $table->id();
-             $table->string('name');
+            $table->string('name');
             $table->date('start_date');
             $table->date('end_date');
             $table->unsignedBigInteger('sem_id');
             $table->foreign('sem_id')->references('id')->on('semesters');
-            
             $table->timestamps();
         });
     }

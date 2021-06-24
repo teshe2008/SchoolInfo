@@ -15,7 +15,7 @@ class CreateAttendancesTable extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-             $table->unsignedBigInteger('school_id');
+            $table->unsignedBigInteger('school_id');
             $table->unsignedBigInteger('stud_id');
             $table->date('school_date');
             $table->unsignedBigInteger('attendance_code');
@@ -27,7 +27,7 @@ class CreateAttendancesTable extends Migration
             $table->foreign('school_id')->references('id')->on('schools');
             $table->foreign('assign_room')->references('id')->on('assign_room_grades');
             $table->foreign('stud_id')->references('id')->on('students');
-          
+
             $table->timestamps();
         });
     }

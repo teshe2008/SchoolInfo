@@ -15,7 +15,7 @@ class CoursePeriod extends Migration
     {
         //
 
-        Schema::create('course__periods', function (Blueprint $table) {
+        Schema::create('course_periods', function (Blueprint $table) {
             $table->id('course_period_id');
             $table->string('short_name');
             $table->unsignedBigInteger('school_year_id');
@@ -24,7 +24,7 @@ class CoursePeriod extends Migration
             $table->unsignedBigInteger('course_id');
             $table->foreign('school_year_id')->references('id')->on('school_years');
             $table->foreign('school_id')->references('id')->on('schools');
-            $table->foreign('teacher_id')->references('staff_id')->on('staff');
+            $table->foreign('teacher_id')->references('id')->on('staff');
             $table->foreign('course_id')->references('id')->on('courses');
             $table->timestamps();
             $table->softDeletes();

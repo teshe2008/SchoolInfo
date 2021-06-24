@@ -15,12 +15,12 @@ class CreateAssignRoomGradesTable extends Migration
     {
         Schema::create('assign_room_grades', function (Blueprint $table) {
             $table->id();
-             $table->string('name');
+            $table->string('name');
             $table->unsignedBigInteger('grade_id');
             $table->unsignedBigInteger('section_id');
             $table->unsignedBigInteger('room_id');
             $table->foreign('room_id')->references('id')->on('rooms');
-            $table->foreign('grade_id')->references('id')->on('gradelevels');
+            $table->foreign('grade_id')->references('id')->on('grade_levels');
             $table->foreign('section_id')->references('id')->on('sections');
             $table->timestamps();
         });

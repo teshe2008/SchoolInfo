@@ -15,14 +15,14 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-               $table->unsignedBigInteger('school_id');
+            $table->unsignedBigInteger('school_id');
             $table->unsignedBigInteger('gradelevels_id');
             $table->string('course_name');
             $table->string('short_name');
             $table->integer('point');
 
             $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade');;
-            $table->foreign('gradelevels_id')->references('id')->on('gradelevels')->onDelete('cascade');;
+            $table->foreign('gradelevels_id')->references('id')->on('grade_levels')->onDelete('cascade');;
 
 
             $table->timestamps();

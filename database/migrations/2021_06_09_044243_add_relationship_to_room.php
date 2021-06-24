@@ -13,10 +13,10 @@ class AddRelationshipToRoom extends Migration
      */
     public function up()
     {
-        Schema::table('room', function (Blueprint $table) {
+        Schema::table('rooms', function (Blueprint $table) {
             //
-               $table->foreign('school_id', 'school_fk_3230867')->references('id')->on('schools');
-      
+            $table->foreign('school_id', 'school_fk_3230867')->references('id')->on('schools');
+
         });
     }
 
