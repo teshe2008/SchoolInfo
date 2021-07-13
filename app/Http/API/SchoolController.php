@@ -15,6 +15,8 @@ class SchoolController extends Controller
     public function index()
     {
         //
+        $school=School::get();
+        return response()->json($school,200);
     }
 
     /**
@@ -36,6 +38,8 @@ class SchoolController extends Controller
     public function store(Request $request)
     {
         //
+        $school =School::find($request->school());
+        return response()->json($request->school(),200);
     }
 
     /**

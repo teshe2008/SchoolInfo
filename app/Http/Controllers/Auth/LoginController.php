@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
+use function GuzzleHttp\Promise\all;
 
 class LoginController extends Controller
 {
@@ -36,5 +41,17 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function login(Request $request)
+    {
+        $response = $request->input();
+        $user = User::where('name', $request->username)->first();
+        if ($user) {
+
+            return response()->json($user, 200);
+        } else {
+            return response(['message' => 'erro'], 404);
+        }
     }
 }
